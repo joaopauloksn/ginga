@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: load-test-scaler-binding
+  namespace: iotoccupancy
+subjects:
+- kind: ServiceAccount
+  name: load-test-scaler  # This should be the service account that is running your pod
+  namespace: iotoccupancy
+roleRef:
+  kind: Role
+  name: load-test-scaler-role  # This should match the Role name you created
+  apiGroup: rbac.authorization.k8s.io

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load-test-scaler
+  namespace: iotoccupancy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: load-test-scaler
+  template:
+    metadata:
+      labels:
+        app: load-test-scaler
+    spec:
+      serviceAccountName: load-test-scaler
+      containers:
+      - name: load-test-manage
+        image: jpksn/load-test-manage:0.0.1
+        imagePullPolicy: Always
+        env:
+        - name: DEPLOYMENT_NAME
+          value: "mqtt-load-tester"
+        - name: NAMESPACE
+          value: "iotoccupancy"

@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: iotoccupancy
+  name: load-test-scaler-role
+rules:
+- apiGroups: ["apps"]
+  resources: ["deployments", "deployments/scale"]  # Allow interacting with deployments and their scaling
+  verbs: ["get", "update", "patch"]  # Necessary permissions to scale deployments
