@@ -1,0 +1,2 @@
+kubernetes
+pymongo==3.11.4

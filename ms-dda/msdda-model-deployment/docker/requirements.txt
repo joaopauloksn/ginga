@@ -1,0 +1,6 @@
+pandas
+numpy
+pymongo
+scikit-learn
+tensorflow
+kubernetes>=26.1.0
